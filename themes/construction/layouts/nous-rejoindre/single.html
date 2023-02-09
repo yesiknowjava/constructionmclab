@@ -2,6 +2,7 @@
 <html lang="en-CA">
 
 {{ partial "nous-rejoindre_head.html" .}}
+
 <body class="x  x-fonts-league-spartan">
     <div id="layout-916-bd-50-a-cfc-9-4-fbc-909-c-6-c-1-db-1-deac-06"
         class="layout layout-layout layout-layout-layout-13 locale-en-CA lang-en">
@@ -71,7 +72,7 @@
                                                                 </svg></a></div>
                                                     </div>
                                                 </div>
-                                               {{ partial "nous-rejoindre_menu.html" .}}
+                                                {{ partial "nous-rejoindre_menu.html" .}}
                                             </nav>
                                         </div>
                                     </div>
@@ -326,11 +327,12 @@
                                                 class="x-el x-el-div c1-1 c1-2 c1-6c c1-6l c1-6m c1-7f c1-1y c1-24 c1-6o c1-26 c1-6p c1-b c1-c c1-6q c1-6r c1-6s c1-6t c1-d c1-7g c1-7h c1-e c1-f c1-g">
                                                 <div data-ux="Block" data-aid="CONTACT_FORM_CONTAINER_REND"
                                                     class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                    <div data-ux="Element" id="bs-7"
+                                                    <div data-ux="Element"
                                                         class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                         <div data-ux="Block"
                                                             class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <form aria-live="polite" data-ux="Form"
+                                                            <form aria-live="polite" data-ux="Form" method="post"
+                                                                action="https://formspree.io/f/mwkjllln"
                                                                 class="x-el x-el-form c1-1 c1-2 c1-18 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                 <input type="text" name="_app_id" autoComplete="off"
                                                                     tabindex="-1" style="display:none" value="" />
@@ -348,7 +350,7 @@
                                                                             data-aid="Nom"
                                                                             class="x-el x-el-div c1-1 c1-2 c1-s c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                             <input type="text" role="textbox"
-                                                                                aria-multiline="false"
+                                                                                name="name" aria-multiline="false"
                                                                                 data-ux="InputFloatLabel"
                                                                                 id="input86576" value="" data-aid="Nom"
                                                                                 data-typography="InputAlpha"
@@ -368,7 +370,7 @@
                                                                             data-aid="Téléphone"
                                                                             class="x-el x-el-div c1-1 c1-2 c1-s c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                             <input type="text" role="textbox"
-                                                                                aria-multiline="false"
+                                                                                name="telephone" aria-multiline="false"
                                                                                 data-ux="InputFloatLabel"
                                                                                 id="input86577" value=""
                                                                                 data-aid="Téléphone"
@@ -389,15 +391,15 @@
                                                                             data-aid="CONTACT_FORM_EMAIL"
                                                                             class="x-el x-el-div c1-1 c1-2 c1-s c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                             <input type="text" role="textbox"
-                                                                                aria-multiline="false"
+                                                                                name="email" aria-multiline="false"
                                                                                 data-ux="InputFloatLabel"
                                                                                 id="input86578" value=""
                                                                                 data-aid="CONTACT_FORM_EMAIL"
                                                                                 data-typography="InputAlpha"
-                                                                                class="x-el x-el-input c1-1 c1-2 c1-3 c1-7a c1-4 c1-7n c1-7o c1-6b c1-7p c1-4e c1-7c c1-7q c1-7r c1-4i c1-4j c1-b c1-7s c1-c c1-45 c1-7t c1-7u c1-7v c1-7w c1-7x c1-7y c1-7z c1-80 c1-81 c1-82 c1-83 c1-d c1-e c1-f c1-g" /><label
+                                                                                class="x-el x-el-input c1-1 c1-2 c1-3 c1-7a c1-4 c1-7n c1-7o c1-6b c1-7p c1-4e c1-7c c1-7q c1-7r c1-4i c1-4j c1-b c1-7s c1-c c1-45 c1-7t c1-7u c1-7v c1-7w c1-7x c1-7y c1-7z c1-80 c1-81 c1-82 c1-83 c1-d c1-e c1-f c1-g" />
+                                                                                <label
                                                                                 data-ux="InputFloatLabelLabel"
-                                                                                for="input86578"
-                                                                                data-typography="InputAlpha"
+                                                                                for="input86578" data-typography=""
                                                                                 class="x-el x-el-label c1-1 c1-2 c1-1i c1-1r c1-1f c1-4k c1-84 c1-85 c1-86 c1-67 c1-b c1-7s c1-c c1-45 c1-83 c1-d c1-e c1-f c1-g">Email*</label>
                                                                         </div>
                                                                     </div>
@@ -410,7 +412,7 @@
                                                                             data-aid="Adresse des travaux"
                                                                             class="x-el x-el-div c1-1 c1-2 c1-s c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                             <input type="text" role="textbox"
-                                                                                aria-multiline="false"
+                                                                                name="address" aria-multiline="false"
                                                                                 data-ux="InputFloatLabel"
                                                                                 id="input86579" value=""
                                                                                 data-aid="Adresse des travaux"
@@ -428,7 +430,8 @@
                                                                     <div data-ux="Block"
                                                                         class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                         <textarea role="textbox" aria-multiline="true"
-                                                                            rows="6" aria-label="Message*"
+                                                                            name="message" rows="6"
+                                                                            aria-label="Message*"
                                                                             data-ux="InputTextArea"
                                                                             placeholder="Message*"
                                                                             data-aid="CONTACT_FORM_MESSAGE"
@@ -476,6 +479,7 @@
                                                                                             data-tccl="ux2.CONTACT.contact7.Form.Default.Link.Default.86581.click,click">Joindre
                                                                                             votre plans</span></div>
                                                                                 </div><input type="file" multiple=""
+                                                                                    name="file"
                                                                                     accept=".jpg,.jpeg,.jpe,.png,.gif,.mp4,.m4a,.vid,.qt,.mov,.mpeg,.mpga,.mp2,.mp2a,.mp3,.m2a,.m3a,.msvideo,.ogg,.3gpp,.webm,.webp,.flac,.wav,.tiff,.mkv,.mk3d,.mks,.doc,.docx,.dot,.xls,.xlsx,.ppt,.pptx,.odp,.odt,.potx,.ppsx,.pdf,.txt,.text,.conf,.def,.list,.log,.in,.ini,.zip,.otf,.woff,.woff2,.csv,.rtf"
                                                                                     style="display:none" /><span
                                                                                     data-ux="DetailsMinor"
@@ -752,16 +756,14 @@
     </div>
     <script type="text/javascript">
         "IntersectionObserver" in window && "Intl" in window && "Locale" in window.Intl || document.write(
-            `\x3Cscript src="https://img1.wsimg.com/poly/v3/polyfill.min.js?rum=0&unknown=polyfill&flags=gated&features=Intl.~locale.en-CA">\x3C/script>`
-            )
+            `\x3Cscript src={{"/js/contact_polyfill.js" | relURL }}>\x3C/script>`
+        )
     </script>
-    <script src="//img1.wsimg.com/blobby/go/916bd50a-cfc9-4fbc-909c-6c1db1deac06/gpub/b4b2a3ac71af420/script.js"
-        crossorigin></script>
-    <script src="//img1.wsimg.com/ceph-p3-01/website-builder-data-prod/static/widgets/UX.4.29.0.js" crossorigin>
+    <script src={{ "/js/contact_script.js" | relURL }} crossorigin></script>
+    <script src={{"/js/contact_UX.4.29.0.js" | relURL }} crossorigin>
     </script>
-    <script src="//img1.wsimg.com/blobby/go/916bd50a-cfc9-4fbc-909c-6c1db1deac06/gpub/4a33af8bee13066b/script.js"
-        crossorigin></script>
-    <script defer src="//img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js" crossorigin></script>
+    <script src={{ "/js/contact_script1.js" | relURL }} crossorigin></script>
+    <script defer src={{"/js/contact_tccl.min.js" | relURL }} crossorigin></script>
 </body>
 
 </html>

@@ -496,16 +496,16 @@
     </div>
     <script type="text/javascript">
         "IntersectionObserver" in window && "Intl" in window && "Locale" in window.Intl || document.write(
-            `\x3Cscript src="https://img1.wsimg.com/poly/v3/polyfill.min.js?rum=0&unknown=polyfill&flags=gated&features=Intl.~locale.en-CA">\x3C/script>`
+            `\x3Cscript src={{"/js/camion_polyfill.min.js" | relURL }}>\x3C/script>`
             )
     </script>
-    <script src="//img1.wsimg.com/blobby/go/916bd50a-cfc9-4fbc-909c-6c1db1deac06/gpub/c16c6c483b65e485/script.js"
+    <script src={{"/js/camion_script.js" | relURL }}
         crossorigin></script>
-    <script src="//img1.wsimg.com/ceph-p3-01/website-builder-data-prod/static/widgets/UX.4.29.0.js" crossorigin>
+    <script src={{"/js/camion_UX.4.29.0.js" | relURL }} crossorigin>
     </script>
-    <script src="//img1.wsimg.com/blobby/go/916bd50a-cfc9-4fbc-909c-6c1db1deac06/gpub/940b79d9fddb5784/script.js"
+    <script src={{"/js/camion_script1.js" | relURL }}
         crossorigin></script>
-    <script defer src="//img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js" crossorigin></script>
+    <script defer src={{"/js/camion_tccl.min.js" | relURL }} crossorigin></script>
 </body>
 
 </html>
