@@ -49,7 +49,7 @@
                                                     </div>
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-2z c1-25 c1-27 c1-15 c1-30 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                        <div data-ux="Element" id="bs-1"
+                                                        <div data-ux="Element"
                                                             class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                             <a rel="" role="button" aria-haspopup="menu"
                                                                 data-ux="LinkDropdown" data-toggle-ignore="true"
@@ -556,69 +556,51 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Magnific Popup core CSS file -->
+                <link rel="stylesheet" href="/css/magnific-popup/magnific-popup.css">
+
+                <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+                <script src="/js/jquery1.9.min.js"></script>
+
+                <!-- Magnific Popup core JS file -->
+                <script src="/js/magnific-popup/jquery.magnific-popup.js"></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('.popup-gallery').magnificPopup({
+                            delegate: 'a',
+                            type: 'image',
+                            tLoading: 'Loading image #%curr%...',
+                            mainClass: 'mfp-img-mobile',
+                            gallery: {
+                              enabled: true,
+                              navigateByImgClick: true,
+                              preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                            },
+                            image: {
+                              tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                              titleSrc: function(item) {
+                                return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+                              }
+                            }
+                          });
+                    })
+                </script>
+                
                 <div id="97a5ca9c-6f37-4db8-ab9b-f6eda65c71f8" class="widget widget-gallery widget-gallery-gallery-2">
                     <div data-ux="WidgetBanner" role="region" id="97a5ca9c-6f37-4db8-ab9b-f6eda65c71f8"
                         class="x-el x-el-div x-el c1-1 c1-2 c1-3 c1-b c1-c c1-d c1-e c1-f c1-g c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
                         <div>
-                            <div data-ux="Element" id="bs-7"
+                            <div data-ux="Element" 
                                 class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                <section data-ux="SectionBanner"
-                                    class="x-el x-el-section c1-1 c1-2 c1-2f c1-24 c1-26 c1-b c1-c c1-a9 c1-aa c1-d c1-e c1-f c1-g">
-                                    <div data-ux="Container"
-                                        class="x-el x-el-div c1-1 c1-2 c1-29 c1-2a c1-v c1-w c1-1y c1-l c1-b c1-c c1-d c1-e c1-f c1-g">
-                                        <div data-ux="Grid"
-                                            class="x-el x-el-div c1-1 c1-2 c1-15 c1-6d c1-6e c1-6f c1-16 c1-17 c1-18 c1-19 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                            <div data-ux="GridCell"
-                                                class="x-el x-el-div c1-1 c1-2 c1-6d c1-6n c1-6o c1-ab c1-ac c1-24 c1-25 c1-26 c1-27 c1-4 c1-ad c1-5c c1-s c1-1t c1-b c1-c c1-ae c1-d c1-af c1-e c1-ag c1-ah c1-f c1-g">
-                                                <div data-ux="Block"
-                                                    class="x-el x-el-div dim c1-1 c1-2 c1-4k c1-55 c1-4 c1-b c1-c c1-d c1-ai c1-aj c1-ak c1-e c1-f c1-g">
-                                                    <div data-ux="Block"
-                                                        class="x-el x-el-div c1-1 c1-2 c1-55 c1-4 c1-al c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                        <div role="img" data-aid="GALLERY_IMAGE0_RENDERED"
-                                                            data-ux="Background"
-                                                            class="x-el x-el-div image c1-1 c1-2 c1-am c1-55 c1-4 c1-al c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <div data-ux="Block" data-lazybg="true"
-                                                                class="x-el x-el-div d-none c1-1 c1-2 c1-an c1-ao c1-ap c1-aq c1-8e c1-b c1-c c1-ar c1-as c1-at c1-au c1-av c1-aw c1-ax c1-ay c1-az c1-b0 c1-b1 c1-b2 c1-b3 c1-b4 c1-b5 c1-b6 c1-b7 c1-b8 c1-b9 c1-ba c1-bb c1-d c1-e c1-f c1-g">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div data-ux="GridCell"
-                                                class="x-el x-el-div c1-1 c1-2 c1-6d c1-6n c1-6o c1-ab c1-ac c1-24 c1-25 c1-26 c1-27 c1-4 c1-ad c1-5c c1-s c1-1t c1-b c1-c c1-ae c1-d c1-af c1-e c1-ag c1-ah c1-f c1-g">
-                                                <div data-ux="Block"
-                                                    class="x-el x-el-div dim c1-1 c1-2 c1-4k c1-55 c1-4 c1-b c1-c c1-d c1-ai c1-aj c1-ak c1-e c1-f c1-g">
-                                                    <div data-ux="Block"
-                                                        class="x-el x-el-div c1-1 c1-2 c1-55 c1-4 c1-al c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                        <div role="img" data-aid="GALLERY_IMAGE1_RENDERED"
-                                                            data-ux="Background"
-                                                            class="x-el x-el-div image c1-1 c1-2 c1-am c1-55 c1-4 c1-al c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <div data-ux="Block" data-lazybg="true"
-                                                                class="x-el x-el-div d-none c1-1 c1-2 c1-an c1-ao c1-ap c1-aq c1-8e c1-b c1-c c1-bc c1-bd c1-be c1-bf c1-bg c1-bh c1-bi c1-bj c1-bk c1-bl c1-bm c1-bn c1-bo c1-bp c1-bq c1-br c1-bs c1-bt c1-bu c1-bv c1-bw c1-d c1-e c1-f c1-g">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div data-ux="GridCell"
-                                                class="x-el x-el-div c1-1 c1-2 c1-6d c1-6n c1-6o c1-ab c1-ac c1-24 c1-25 c1-26 c1-27 c1-4 c1-ad c1-5c c1-s c1-1t c1-b c1-c c1-ae c1-d c1-af c1-e c1-ag c1-ah c1-f c1-g">
-                                                <div data-ux="Block"
-                                                    class="x-el x-el-div dim c1-1 c1-2 c1-4k c1-55 c1-4 c1-b c1-c c1-d c1-ai c1-aj c1-ak c1-e c1-f c1-g">
-                                                    <div data-ux="Block"
-                                                        class="x-el x-el-div c1-1 c1-2 c1-55 c1-4 c1-al c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                        <div role="img" data-aid="GALLERY_IMAGE2_RENDERED"
-                                                            data-ux="Background"
-                                                            class="x-el x-el-div image c1-1 c1-2 c1-am c1-55 c1-4 c1-al c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <div data-ux="Block" data-lazybg="true"
-                                                                class="x-el x-el-div d-none c1-1 c1-2 c1-bx c1-ao c1-ap c1-aq c1-8e c1-b c1-c c1-by c1-bz c1-c0 c1-c1 c1-c2 c1-c3 c1-c4 c1-c5 c1-c6 c1-c7 c1-c8 c1-c9 c1-ca c1-cb c1-cc c1-cd c1-ce c1-cf c1-cg c1-ch c1-ci c1-d c1-e c1-f c1-g">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="html-code grid-of-images">
+                                    <div class="popup-gallery">
+                                      <a href="/images/Gabion1.jpg"><img src="/images/Gabion1.jpg" width="33%" height="300" style="object-fit: cover;"></a>
+                                      <a href="/images/181195025_378397640062819_6767095072038179936.jpg"><img src="/images/181195025_378397640062819_6767095072038179936.jpg" width="33%" height="300" style="object-fit: cover;"></a>
+                                      <a href="/images/IMG_2342.jpg"><img src="/images/IMG_2342.jpg" width="33%" height="300" style="object-fit: cover;"></a>
                                     </div>
-                                </section>
+                                  </div>
                             </div>
                         </div>
                     </div>

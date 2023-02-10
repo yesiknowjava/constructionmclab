@@ -2348,16 +2348,14 @@
     <link rel="stylesheet" href="/css/flexslider/demo.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/css/flexslider/flexslider.css" type="text/css" media="screen" />
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
 
   <!-- FlexSlider -->
   <script defer src="/js/flexslider/jquery.flexslider.js"></script>
 
   <script type="text/javascript">
-    $(function(){
-      SyntaxHighlighter.all();
-    });
+   
     $(window).load(function(){
       $('#carousel').flexslider({
         animation: "slide",
@@ -2365,6 +2363,7 @@
         animationLoop: false,
         slideshow: true,
         itemWidth: 210,
+        itemHeight: 600,
         itemMargin: 5,
         asNavFor: '#slider'
       });
