@@ -2,6 +2,76 @@
 <html lang="en-CA">
 
 {{ partial "installation_head.html" . }}
+<script src="/js/jquery1.9.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.faq_question').click(function () {
+
+            if ($(this).parent().is('.open')) {
+                $(this).closest('.faq').find('.faq_answer_container').animate({
+                    'height': '0'
+                }, 500);
+                $(this).closest('.faq').removeClass('open');
+
+            } else {
+                var newHeight = $(this).closest('.faq').find('.faq_answer').height() + 'px';
+                $(this).closest('.faq').find('.faq_answer_container').animate({
+                    'height': newHeight
+                }, 500);
+                $(this).closest('.faq').addClass('open');
+            }
+        });
+    });
+</script>
+
+<!-- CSS -->
+<style>
+    /*FAQS*/
+    .faq_question {
+        margin: 0px;
+        margin-top: 10px;
+        padding: 0px 0px 5px 0px;
+        /*display: inline-block;*/
+        cursor: pointer;
+        font-weight: bold;
+        color: rgb(168, 95, 7);
+    }
+
+    .hr {
+        padding: 10px 0 10px 0;
+    }
+
+    .faq_answer_container {
+        height: 0px;
+        overflow: hidden;
+        padding: 0px;
+        font-size: 18px;
+        font-weight: 300;
+        color: rgb(0 0 0 / 70%);
+    }
+</style>
+
+<style>
+    .button-sub {
+        background-color: rgb(239, 144, 31);
+        color: rgb(0, 0, 0);
+        border-radius: 48px;
+        min-height: 56px;
+        padding-right: 40px;
+        justify-content: center;
+        display: inline-flex;
+        border-style: none;
+        text-align: center;
+        padding-left: 40px;
+        text-transform: uppercase;
+        letter-spacing: 0.071em;
+        font-family: Helvetica, arial, sans-serif;
+        color: rgb(0, 0, 0) !important;
+    }
+</style>
+
+{{ partial "sticky_header.html" (dict "context" . "myVar" "n-62100") }}
 
 <body class="x  x-fonts-league-spartan">
     <div id="layout-916-bd-50-a-cfc-9-4-fbc-909-c-6-c-1-db-1-deac-06"
@@ -74,7 +144,7 @@
                                                     </div>
                                                 </div>
                                                 {{ partial "installation_menu.html" . }}
-                                                
+
                                             </nav>
                                         </div>
                                     </div>
@@ -312,28 +382,21 @@
                                                 class="x-el x-el-div c1-1 c1-2 c1-s c1-b c1-c c1-d c1-e c1-f c1-g">
                                                 <picture data-lazyimg="true"
                                                     class="x-el x-el-picture c1-1 c1-2 c1-4 c1-55 c1-6z c1-70 c1-1a c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                    <source media="(max-width: 450px)"
-                                                        srcSet="{{"/images/blob-d56cdd8_1.png" | relURL }},
+                                                    <source media="(max-width: 450px)" srcSet="{{"/images/blob-d56cdd8_1.png" | relURL }},
                                                          {{"/images/blob-d56cdd8_2.png" | relURL }} 2x,
                                                           {{"/images/blob-d56cdd8_3.png" | relURL }} 3x" />
-                                                    <source media="(min-width: 451px) and (max-width: 767px)"
-                                                        srcSet="{{"/images/blob-d56cdd8_4.png" | relURL }},
+                                                    <source media="(min-width: 451px) and (max-width: 767px)" srcSet="{{"/images/blob-d56cdd8_4.png" | relURL }},
                                                          {{"/images/blob-d56cdd8_5.png" | relURL }} 2x,
                                                           {{"/images/blob-d56cdd8_6.png" | relURL }} 3x" />
-                                                    <source media="(min-width: 768px) and (max-width: 1023px)"
-                                                        srcSet="{{"/images/blob-d56cdd8_7.png" | relURL }},
+                                                    <source media="(min-width: 768px) and (max-width: 1023px)" srcSet="{{"/images/blob-d56cdd8_7.png" | relURL }},
                                                          {{"/images/blob-d56cdd8_8.png" | relURL }} 2x" />
-                                                    <source media="(min-width: 1024px) and (max-width: 1279px)"
-                                                        srcSet="{{"/images/blob-d56cdd8_9.png" | relURL }}, 
+                                                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcSet="{{"/images/blob-d56cdd8_9.png" | relURL }}, 
                                                         {{"/images/blob-d56cdd8_10.png" | relURL }} 2x" />
-                                                    <source media="(min-width: 1280px) and (max-width: 1535px)"
-                                                        srcSet="{{"/images/blob-d56cdd8_11.png" | relURL }}, 
+                                                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcSet="{{"/images/blob-d56cdd8_11.png" | relURL }}, 
                                                         {{"/images/blob-d56cdd8_12.png" | relURL }} 2x" />
-                                                    <source media="(min-width: 1536px)"
-                                                        srcSet="{{"/images/blob-d56cdd8_13.png" | relURL }},
+                                                    <source media="(min-width: 1536px)" srcSet="{{"/images/blob-d56cdd8_13.png" | relURL }},
                                                          {{"/images/blob-d56cdd8_14.png" | relURL }} 2x" />
-                                                    <img data-ux="Image"
-                                                        src={{"/images/blob-d56cdd8_15.png" | relURL }}
+                                                    <img data-ux="Image" src={{"/images/blob-d56cdd8_15.png" | relURL }}
                                                         data-aid="IMAGE_RENDERED"
                                                         class="x-el x-el-img c1-1 c1-2 c1-4 c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-71 c1-2h c1-b c1-c c1-72 c1-d c1-e c1-f c1-g" />
                                                 </picture>
@@ -368,13 +431,20 @@
                                                                         système septique ou la réfection d'un ancien
                                                                         système.</span></p>
                                                                 <p style="margin:0"><span><br></span></p>
-                                                                <p style="margin:0"><span><br></span></p>
-                                                                <p style="margin:0"><span><br></span></p>
-                                                                <p style="margin:0"><span><br></span></p>
-                                                                <p style="margin:0"><span><br></span></p>
-                                                                <p style="margin:0"><span><br></span></p>
                                                             </div>
                                                         </div>
+                                                        <div data-ux="Block"
+                                                            class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
+                                                            <a data-ux-btn="secondary" data-ux="ButtonSecondary"
+                                                                style="font-size: 18px; background-color: rgb(239, 144, 31);"
+                                                                shape="PILL" decoration="NONE" shadow="NONE"
+                                                                data-aid="CTA_BUTTON_RENDERED" href="/nous-rejoindre"
+                                                                target=""
+                                                                data-tccl="ux2.INTRODUCTION.introduction2.Group.Default.Button.Secondary.20006.click,click"
+                                                                data-page="e4e7811f-27ff-4962-b7b1-4784fe908f65"
+                                                                data-typography="ButtonAlpha"
+                                                                class="x-el x-el-a c1-3x c1-3y c1-1t c1-7v c1-7w c1-13 c1-7x c1-6z c1-1q c1-1f c1-1r c1-s c1-1y c1-4 c1-6a c1-7y c1-t c1-u c1-7z c1-80 c1-81 c1-82 c1-b c1-4u c1-83 c1-44 c1-84 c1-85 c1-48 c1-49 c1-4a c1-4b button-sub">Demande
+                                                                de soumission</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -396,7 +466,7 @@
                                     <h2 role="heading" aria-level="2" data-ux="SectionHeading"
                                         data-aid="CONTENT_SECTION_TITLE_RENDERED" data-typography="HeadingBeta"
                                         class="x-el x-el-h2 c1-1 c1-2 c1-1r c1-1f c1-7v c1-29 c1-17 c1-16 c1-7w c1-6z c1-1j c1-77 c1-7x c1-45 c1-79 c1-7y c1-7z c1-7j c1-7k c1-7l">
-                                        <span data-ux="Element" class="x-el x-el-span c1-80 c1-33 c1-81 c1-82 c1-83">Les
+                                        <span data-ux="Element" class="x-el x-el-span c1-80 c1-33 c1-81 c1-83">Les
                                             principaux type de système</span>
                                         <div data-ux="Block"
                                             class="x-el x-el-div c1-4 c1-84 c1-1j c1-77 c1-79 c1-7j c1-7k c1-7l">
@@ -430,19 +500,12 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-6z c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                        <picture data-lazyimg="true"
+                                                        <picture
                                                             class="x-el x-el-picture c1-1 c1-2 c1-4 c1-55 c1-6z c1-70 c1-1a c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <img data-ux="Image" data-lazyimg="true"
-                                                                data-srclazy={{"/images/ChampEpuration_Classique-e1545679125165_1.png" | relURL }}
-                                                                src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                                srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                                {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                                {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                                {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                                {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
-                                                                sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
-                                                                data-aid="CONTENT_IMAGE1_RENDERED"
-                                                                class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-8r c1-2h c1-b c1-c c1-8s c1-8t c1-d c1-e c1-f c1-g" />
+                                                            <img data-ux="Image"
+                                                                src={{"/images/ChampEpuration_Classique-e1545679125165.png" | relURL }}
+                                                                srcset="" data-aid="CONTENT_IMAGE1_RENDERED"
+                                                                class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-92 c1-2h c1-b c1-c c1-93 c1-94 c1-d c1-e c1-f c1-g">
                                                         </picture>
                                                     </span></div>
                                             </div>
@@ -471,19 +534,12 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-6z c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                        <picture data-lazyimg="true"
+                                                        <picture
                                                             class="x-el x-el-picture c1-1 c1-2 c1-4 c1-55 c1-6z c1-70 c1-1a c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <img data-ux="Image" data-lazyimg="true"
-                                                                data-srclazy={{"/images/Epurateur20modifie_1.jpg" | relURL }}
-                                                                src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                                srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                                {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                                {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                                {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                                {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
-                                                                sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
-                                                                data-aid="CONTENT_IMAGE2_RENDERED"
-                                                                class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-8r c1-2h c1-b c1-c c1-8s c1-8t c1-d c1-e c1-f c1-g" />
+                                                            <img data-ux="Image"
+                                                                src="/images/Épurateurmodifié.jpg"  | relURL }}
+                                                                srcset="" data-aid="CONTENT_IMAGE2_RENDERED"
+                                                                class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-92 c1-2h c1-b c1-c c1-93 c1-94 c1-d c1-e c1-f c1-g">
                                                         </picture>
                                                     </span></div>
                                             </div>
@@ -512,20 +568,12 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-6z c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
-                                                            data-lazyimg="true"
-                                                            data-srclazy={{"/images/blob-5d25b3d_1.png" | relURL }}
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                            {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                            {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                            {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                            {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
-                                                            sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
-                                                            data-srcsetlazy="{{"/images/blob-5d25b3d_2.png" | relURL }},
-                                                             {{"/images/blob-5d25b3d_3.png" | relURL }} 2x,
-                                                              {{"/images/blob-5d25b3d_4.png" | relURL }} 3x"
+                                                            src={{ "/images/blob-5d25b3d_1.png" | relURL }}
+                                                            srcset="{{ "/images/blob-5d25b3d_1.png" | relURL }}, 
+                                                            {{ "/images/blob-5d25b3d_2.png" | relURL }} 2x"
                                                             data-ux="Image" data-aid="CONTENT_IMAGE3_RENDERED"
-                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-8r c1-2h c1-b c1-c c1-8s c1-8t c1-d c1-e c1-f c1-g" /></span>
+                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-92 c1-2h c1-b c1-c c1-93 c1-94 c1-d c1-e c1-f c1-g"></span>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -553,20 +601,11 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-6z c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
-                                                            data-lazyimg="true"
-                                                            data-srclazy="{{"/images/IMG_4019_1.jpg" | relURL }},m"
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                                {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                                {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                                {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                                {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
-                                                            sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
-                                                            data-srcsetlazy="{{"/images/IMG_4019_4.jpg" | relURL }},
-                                                             {{"/images/IMG_4019_2.jpg" | relURL }} 2x,
-                                                             {{"/images/IMG_4019_3.jpg" | relURL }} 3x"
+                                                            src={{"/images/IMG_4019_1.jpg"| relURL }}
+                                                            srcset="{{"/images/IMG_4019_3.jpg"| relURL }}, 
+                                                            {{"/images/IMG_4019_4.jpg"| relURL }} 2x"
                                                             data-ux="Image"
-                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-8r c1-2h c1-b c1-c c1-8s c1-8t c1-d c1-e c1-f c1-g" /></span>
+                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-92 c1-2h c1-b c1-c c1-93 c1-94 c1-d c1-e c1-f c1-g"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -594,20 +633,11 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-6z c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
-                                                            data-lazyimg="true"
-                                                            data-srclazy={{"/images/IMG_3929_1.jpg" | relURL }}
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                                {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                                {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                                {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                                {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
-                                                            sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
-                                                            data-srcsetlazy="{{"/images/IMG_3929_2.jpg" | relURL }},
-                                                             {{"/images/IMG_3929_3.jpg" | relURL }} 2x, 
-                                                             {{"/images/IMG_3929_4.jpg" | relURL }} 3x"
+                                                            src={{"/images/IMG_3929_1.jpg" | relURL }}
+                                                            srcset="{{"/images/IMG_3929_2.jpg" | relURL }},
+                                                            {{"/images/IMG_3929_4.jpg" | relURL }} 2x"
                                                             data-ux="Image"
-                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-8r c1-2h c1-b c1-c c1-8s c1-8t c1-d c1-e c1-f c1-g" /></span>
+                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-92 c1-2h c1-b c1-c c1-93 c1-94 c1-d c1-e c1-f c1-g"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -635,24 +665,16 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-6z c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
-                                                            data-lazyimg="true"
-                                                            data-srclazy={{"/images/IMG_4112_1.jpg" | relURL }}
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                                {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                                {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                                {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                                {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
-                                                            sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
-                                                            data-srcsetlazy="{{"/images/IMG_4112_2.jpg" | relURL }},
-                                                             {{"/images/IMG_4112_3.jpg" | relURL }} 2x, 
-                                                             {{"/images/IMG_411_4.jpg" | relURL }} 3x"
+                                                            src={{"/images/IMG_4112_1.jpg" | relURL }}
+                                                            srcset="{{"/images/IMG_4112_2.jpg" | relURL }}, 
+                                                            {{"/images/IMG_4112_3.jpg" | relURL }} 2x"
                                                             data-ux="Image"
-                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-8r c1-2h c1-b c1-c c1-8s c1-8t c1-d c1-e c1-f c1-g" /></span>
+                                                            class="x-el x-el-img c1-1 c1-2 c1-1z c1-1y c1-29 c1-2a c1-16 c1-18 c1-2b c1-92 c1-2h c1-b c1-c c1-93 c1-94 c1-d c1-e c1-f c1-g"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </section>
                         </div>
@@ -946,119 +968,135 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div data-ux="Grid"
                                         class="x-el x-el-div c1-1 c1-2 c1-15 c1-6b c1-6c c1-6d c1-16 c1-6e c1-18 c1-6g c1-b c1-c c1-6h c1-6i c1-8u c1-6k c1-d c1-e c1-f c1-g">
                                         <div data-ux="GridCell"
                                             class="x-el x-el-div c1-1 c1-2 c1-6b c1-6l c1-6m c1-a6 c1-1y c1-24 c1-6o c1-26 c1-6q c1-b c1-c c1-a7 c1-8v c1-8w c1-6s c1-6t c1-8x c1-6v c1-d c1-a8 c1-8y c1-8z c1-e c1-f c1-g">
                                             <div data-ux="Block" id="4ad56114-2bc4-4964-903a-06661b35668962155"
                                                 class="x-el x-el-div c1-1 c1-2 c1-ac c1-ad c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                <div data-ux="Block" id="509b4234-884a-4821-b305-0d15ff89a7f0"
-                                                    class="x-el x-el-div c1-1 c1-2 c1-4g c1-4h c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                    <button data-ux="Block"
-                                                        aria-controls="509b4234-884a-4821-b305-0d15ff89a7f0"
-                                                        aria-expanded="false" data-tccl="ux2.faq.question.click,click"
-                                                        class="x-el x-el-button accordion-question c1-1 c1-2 c1-4 c1-15 c1-5y c1-ae c1-t c1-u c1-27 c1-25 c1-1d c1-1u c1-1v c1-1w c1-1x c1-2f c1-af c1-b c1-c c1-ag c1-ah c1-d c1-e c1-f c1-g"><span
-                                                            role="heading" aria-level="NaN" data-ux="HeadingProduct"
-                                                            data-aid="FAQ_QUESTION_RENDERED_0"
-                                                            data-typography="HeadingDelta"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-1r c1-1f c1-76 c1-19 c1-17 c1-16 c1-18 c1-b c1-8m c1-5z c1-45 c1-61 c1-63 c1-64 c1-65">Quelle
-                                                            est le coût d&#x27;une installation septique</span><svg
-                                                            viewBox="0 0 24 24" fill="currentColor" width="16"
-                                                            height="16" data-ux="Icon"
-                                                            class="x-el x-el-svg accordion-icon c1-1 c1-2 c1-a9 c1-1i c1-2b c1-ai c1-3d c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <path fill-rule="evenodd"
-                                                                d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
-                                                            </path>
-                                                        </svg></button>
-                                                    <div data-ux="Block"
-                                                        aria-labelledby="509b4234-884a-4821-b305-0d15ff89a7f0"
-                                                        class="x-el x-el-div accordion-answer c1-1 c1-2 c1-39 c1-t c1-u c1-b c1-c c1-aj c1-d c1-e c1-f c1-g">
-                                                        <div data-ux="Text" data-aid="FAQ_ANSWER_RENDERED_0"
-                                                            data-typography="BodyAlpha"
-                                                            class="x-el c1-1 c1-2 c1-1r c1-1f c1-50 c1-16 c1-18 c1-b c1-a5 c1-c c1-45 c1-d c1-e c1-f c1-g x-rt">
-                                                            <p style="margin:0"><span>Le coût d'une installation
-                                                                    septique va varier selon le système choisie ainsi
-                                                                    que l'emplacement de l'installation. Voici un
-                                                                    approximatif des différents coûts pour des systèmes
-                                                                    résidentiels :</span></p>
-                                                            <p style="margin:0"><span><br></span></p>
-                                                            <p style="margin:0">
-                                                                <ul>
-                                                                    <li>Élément classique et modifié : entre 5000$ et 15
-                                                                        000$</li>
-                                                                    <li>Système secondaire avancé : entre 15 000$ et 25
-                                                                        000$</li>
-                                                                    <li>Système tertiaire : Entre 20 000$ et 35 000$
-                                                                    </li>
-                                                                </ul>
-                                                            </p>
+                                                <div class="faq_container">
+                                                    <div class="faq">
+                                                        <div class="faq_question">
+                                                            <div data-ux="Block"
+                                                                aria-controls="509b4234-884a-4821-b305-0d15ff89a7f0"
+                                                                aria-expanded="false"
+                                                                data-tccl="ux2.faq.question.click,click"
+                                                                class="x-el x-el-button accordion-question c1-1 c1-2 c1-4 c1-15 c1-5y c1-af c1-t c1-u c1-27 c1-25 c1-1d c1-1u c1-1v c1-1w c1-1x c1-2f c1-ag c1-b c1-c c1-ah c1-d c1-e c1-f c1-g">
+                                                                <span role="heading" aria-level="NaN"
+                                                                    data-ux="HeadingProduct"
+                                                                    data-aid="FAQ_QUESTION_RENDERED_0"
+                                                                    data-typography="HeadingDelta"
+                                                                    class="x-el x-el-span c1-1 c1-2 c1-1r c1-1f c1-76 c1-19 c1-17 c1-16 c1-18 c1-b c1-8x c1-5z c1-45 c1-61 c1-63 c1-64 c1-65">Quelle
+                                                                    est le coût d'une installation septique</span>
+                                                                <div><svg viewBox="0 0 24 24" fill="currentColor"
+                                                                        width="16" height="16" data-ux="Icon"
+                                                                        class="x-el x-el-svg accordion-icon c1-1 c1-2 c1-aa c1-1i c1-2b c1-aj c1-3d c1-b c1-c c1-d c1-e c1-f c1-g">
+                                                                        <path fill-rule="evenodd"
+                                                                            d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
+                                                                        </path>
+                                                                    </svg></div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="faq_answer_container">
+                                                            <div class="faq_answer">
+                                                                <div>
+                                                                    <p style="margin:0"><span>Le coût d'une
+                                                                            installation septique va varier selon le
+                                                                            système choisie ainsi que l'emplacement
+                                                                            de l'installation. Voici un approximatif
+                                                                            des différents coûts pour des systèmes
+                                                                            résidentiels :</span></p>
+                                                                    <p style="margin:0"><span><br></span></p>
+                                                                    <p style="margin:0"></p>
+                                                                    <ul>
+                                                                        <li>Élément classique et modifié : entre
+                                                                            5000$ et 15 000$</li>
+                                                                        <li>Système secondaire avancé : entre 15
+                                                                            000$ et 25 000$</li>
+                                                                        <li>Système tertiaire : Entre 20 000$ et 35
+                                                                            000$</li>
+                                                                    </ul>
+                                                                    <p></p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <hr aria-hidden="true" role="separator" data-ux="HR"
-                                                    class="x-el x-el-hr c1-1 c1-2 c1-85 c1-ak c1-87 c1-16 c1-18 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g" />
-                                                <div data-ux="Block" id="fe7a0b5d-5813-4804-8ce2-539e14214334"
-                                                    class="x-el x-el-div c1-1 c1-2 c1-4g c1-4h c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                    <button data-ux="Block"
-                                                        aria-controls="fe7a0b5d-5813-4804-8ce2-539e14214334"
-                                                        aria-expanded="false" data-tccl="ux2.faq.question.click,click"
-                                                        class="x-el x-el-button accordion-question c1-1 c1-2 c1-4 c1-15 c1-5y c1-ae c1-t c1-u c1-27 c1-25 c1-1d c1-1u c1-1v c1-1w c1-1x c1-2f c1-af c1-b c1-c c1-ag c1-ah c1-d c1-e c1-f c1-g"><span
-                                                            role="heading" aria-level="NaN" data-ux="HeadingProduct"
-                                                            data-aid="FAQ_QUESTION_RENDERED_1"
-                                                            data-typography="HeadingDelta"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-1r c1-1f c1-76 c1-19 c1-17 c1-16 c1-18 c1-b c1-8m c1-5z c1-45 c1-61 c1-63 c1-64 c1-65">Quel
-                                                            est le coût pour le test de sol et le plan</span><svg
-                                                            viewBox="0 0 24 24" fill="currentColor" width="16"
-                                                            height="16" data-ux="Icon"
-                                                            class="x-el x-el-svg accordion-icon c1-1 c1-2 c1-a9 c1-1i c1-2b c1-ai c1-3d c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <path fill-rule="evenodd"
-                                                                d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
-                                                            </path>
-                                                        </svg></button>
-                                                    <div data-ux="Block"
-                                                        aria-labelledby="fe7a0b5d-5813-4804-8ce2-539e14214334"
-                                                        class="x-el x-el-div accordion-answer c1-1 c1-2 c1-39 c1-t c1-u c1-b c1-c c1-aj c1-d c1-e c1-f c1-g">
-                                                        <div data-ux="Text" data-aid="FAQ_ANSWER_RENDERED_1"
-                                                            data-typography="BodyAlpha"
-                                                            class="x-el c1-1 c1-2 c1-1r c1-1f c1-50 c1-16 c1-18 c1-b c1-a5 c1-c c1-45 c1-d c1-e c1-f c1-g x-rt">
-                                                            <p style="margin:0"><span>Le coût pour le test de sol et le
-                                                                    plan qui est OBLIGATOIRE est d'environ 2000 à
-                                                                    2500$&nbsp;</span></p>
+                                                    class="hr x-el x-el-hr c1-1 c1-2 c1-85 c1-ak c1-87 c1-16 c1-18 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g" />
+                                                <div class="faq_container">
+                                                    <div class="faq">
+                                                        <div class="faq_question">
+                                                            <button data-ux="Block"
+                                                                aria-controls="509b4234-884a-4821-b305-0d15ff89a7f0"
+                                                                aria-expanded="false"
+                                                                data-tccl="ux2.faq.question.click,click"
+                                                                class="x-el x-el-button accordion-question c1-1 c1-2 c1-4 c1-15 c1-5y c1-af c1-t c1-u c1-27 c1-25 c1-1d c1-1u c1-1v c1-1w c1-1x c1-2f c1-ag c1-b c1-c c1-ah c1-d c1-e c1-f c1-g"><span
+                                                                    role="heading" aria-level="NaN"
+                                                                    data-ux="HeadingProduct"
+                                                                    data-aid="FAQ_QUESTION_RENDERED_0"
+                                                                    data-typography="HeadingDelta"
+                                                                    class="x-el x-el-span c1-1 c1-2 c1-1r c1-1f c1-76 c1-19 c1-17 c1-16 c1-18 c1-b c1-8x c1-5z c1-45 c1-61 c1-63 c1-64 c1-65">Quel
+                                                                    est le coût pour le test de sol et le
+                                                                    plan</span><svg viewBox="0 0 24 24"
+                                                                    fill="currentColor" width="16" height="16"
+                                                                    data-ux="Icon"
+                                                                    class="x-el x-el-svg accordion-icon c1-1 c1-2 c1-aa c1-1i c1-2b c1-aj c1-3d c1-b c1-c c1-d c1-e c1-f c1-g">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
+                                                                    </path>
+                                                                </svg></button>
+                                                        </div>
+                                                        <div class="faq_answer_container">
+                                                            <div class="faq_answer">
+                                                                <div>
+                                                                    <p style="margin:0"><span>Le coût pour le test de
+                                                                            sol et le plan qui est OBLIGATOIRE est
+                                                                            d'environ 2000 à 2500$&nbsp;</span></p>
+                                                                    <p></p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <hr aria-hidden="true" role="separator" data-ux="HR"
-                                                    class="x-el x-el-hr c1-1 c1-2 c1-85 c1-ak c1-87 c1-16 c1-18 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g" />
-                                                <div data-ux="Block" id="8fa63e8a-eaa2-4379-9285-6ba19160cd9d"
-                                                    class="x-el x-el-div c1-1 c1-2 c1-4g c1-4h c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                    <button data-ux="Block"
-                                                        aria-controls="8fa63e8a-eaa2-4379-9285-6ba19160cd9d"
-                                                        aria-expanded="false" data-tccl="ux2.faq.question.click,click"
-                                                        class="x-el x-el-button accordion-question c1-1 c1-2 c1-4 c1-15 c1-5y c1-ae c1-t c1-u c1-27 c1-25 c1-1d c1-1u c1-1v c1-1w c1-1x c1-2f c1-af c1-b c1-c c1-ag c1-ah c1-d c1-e c1-f c1-g"><span
-                                                            role="heading" aria-level="NaN" data-ux="HeadingProduct"
-                                                            data-aid="FAQ_QUESTION_RENDERED_2"
-                                                            data-typography="HeadingDelta"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-1r c1-1f c1-76 c1-19 c1-17 c1-16 c1-18 c1-b c1-8m c1-5z c1-45 c1-61 c1-63 c1-64 c1-65"></span><svg
-                                                            viewBox="0 0 24 24" fill="currentColor" width="16"
-                                                            height="16" data-ux="Icon"
-                                                            class="x-el x-el-svg accordion-icon c1-1 c1-2 c1-a9 c1-1i c1-2b c1-ai c1-3d c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <path fill-rule="evenodd"
-                                                                d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
-                                                            </path>
-                                                        </svg></button>
-                                                    <div data-ux="Block"
-                                                        aria-labelledby="8fa63e8a-eaa2-4379-9285-6ba19160cd9d"
-                                                        class="x-el x-el-div accordion-answer c1-1 c1-2 c1-39 c1-t c1-u c1-b c1-c c1-aj c1-d c1-e c1-f c1-g">
-                                                        <div data-ux="Text" data-aid="FAQ_ANSWER_RENDERED_2"
-                                                            data-typography="BodyAlpha"
-                                                            class="x-el c1-1 c1-2 c1-1r c1-1f c1-50 c1-16 c1-18 c1-b c1-a5 c1-c c1-45 c1-d c1-e c1-f c1-g x-rt">
-                                                            <p style="margin:0"><span>Ajoutez une réponse à cet
-                                                                    article.</span></p>
+                                                    class="hr x-el x-el-hr c1-1 c1-2 c1-85 c1-ak c1-87 c1-16 c1-18 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g" />
+                                                <div class="faq_container">
+                                                    <div class="faq">
+                                                        <div class="faq_question">
+                                                            <button data-ux="Block"
+                                                                aria-controls="509b4234-884a-4821-b305-0d15ff89a7f0"
+                                                                aria-expanded="false"
+                                                                data-tccl="ux2.faq.question.click,click"
+                                                                class="x-el x-el-button accordion-question c1-1 c1-2 c1-4 c1-15 c1-5y c1-af c1-t c1-u c1-27 c1-25 c1-1d c1-1u c1-1v c1-1w c1-1x c1-2f c1-ag c1-b c1-c c1-ah c1-d c1-e c1-f c1-g"><span
+                                                                    role="heading" aria-level="NaN"
+                                                                    data-ux="HeadingProduct"
+                                                                    data-aid="FAQ_QUESTION_RENDERED_0"
+                                                                    data-typography="HeadingDelta"
+                                                                    class="x-el x-el-span c1-1 c1-2 c1-1r c1-1f c1-76 c1-19 c1-17 c1-16 c1-18 c1-b c1-8x c1-5z c1-45 c1-61 c1-63 c1-64 c1-65"></span><svg
+                                                                    viewBox="0 0 24 24" fill="currentColor" width="16"
+                                                                    height="16" data-ux="Icon"
+                                                                    class="x-el x-el-svg accordion-icon c1-1 c1-2 c1-aa c1-1i c1-2b c1-aj c1-3d c1-b c1-c c1-d c1-e c1-f c1-g">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
+                                                                    </path>
+                                                                </svg></button>
+                                                        </div>
+                                                        <div class="faq_answer_container">
+                                                            <div class="faq_answer">
+                                                                <div>
+                                                                    <p style="margin:0"><span>Ajoutez une réponse à cet
+                                                                            article.</span></p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <hr aria-hidden="true" role="separator" data-ux="HR"
-                                                    class="x-el x-el-hr c1-1 c1-2 c1-85 c1-ak c1-87 c1-16 c1-18 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g" />
+                                                    class="hr x-el x-el-hr c1-1 c1-2 c1-85 c1-ak c1-87 c1-16 c1-18 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g" />
                                             </div>
                                         </div>
                                     </div>
@@ -1123,19 +1161,17 @@
             </div>
         </div>
     </div>
-</div>
-<script type="text/javascript">
-    "IntersectionObserver" in window && "Intl" in window && "Locale" in window.Intl || document.write(
-        `\x3Cscript src={{"/js/installation_polyfill.min.js" | relURL }}>\x3C/script>`
+    </div>
+    <script type="text/javascript">
+        "IntersectionObserver" in window && "Intl" in window && "Locale" in window.Intl || document.write(
+            `\x3Cscript src={{"/js/installation_polyfill.min.js" | relURL }}>\x3C/script>`
         )
-</script>
-<script src={{"/js/installation_script.js" | relURL }}
-    crossorigin></script>
-<script src={{"/js/installation_UX.4.29.0.js" | relURL }} crossorigin>
-</script>
-<script src={{"/js/installation_script1.js" | relURL }}
-    crossorigin></script>
-<script defer src={{"/js/tccl.min.js" | relURL }} crossorigin></script>
+    </script>
+    <script src={{"/js/installation_script.js" | relURL }} crossorigin></script>
+    <script src={{"/js/installation_UX.4.29.0.js" | relURL }} crossorigin>
+    </script>
+    <script src={{"/js/installation_script1.js" | relURL }} crossorigin></script>
+    <script defer src={{"/js/tccl.min.js" | relURL }} crossorigin></script>
 </body>
 
 </html>

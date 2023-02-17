@@ -1,0 +1,74 @@
+<style>
+    .header {
+        padding: 10px 16px;
+        background: #555;
+        color: #f1f1f1;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky+.content {
+        padding-top: 102px;
+    }
+
+    .z-index {
+        z-index: 9999;
+    }
+
+    .add_opacity {
+        opacity: 0.85;
+    }
+
+    .remove_opacity {
+        opacity: 1;
+    }
+
+    .bg {
+        background-color: rgba(22, 22, 22, 0.9);
+        position: fixed; z-index: 10000; left: 0px; right: 0px; top: 0px;
+        /*transition: background .3s;*/
+        
+    }
+
+    .logo_small {
+        max-height: 64px; box-shadow: none; margin-top: 0px; height: 64px;
+    }
+
+</style>
+
+<script>
+    $(document).ready(function () {
+
+        
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+                header.classList.add("z-index");
+                header.classList.add("add_opacity");
+                document.getElementById("header_stickynav122167").setAttribute('class', 'bg');
+                $("#logo1").addClass("logo_small");
+                //document.getElementById("logo1").addClass("logo_small");
+                //document.getElementById("logo1").setAttribute('style', 'height: 64px');
+            } else {
+                header.classList.remove("sticky");
+                header.classList.remove("add_opacity");
+                document.getElementById("header_stickynav122167").removeAttribute('class', 'bg');
+                //document.getElementById("logo1").removeClass("logo_small");
+                $("#logo1").removeClass("logo_small");
+            }
+        }
+        var header = document.getElementById("{{ .myVar }}");
+        var sticky = header.offsetTop;
+        window.onscroll = function () {
+            myFunction()
+        };
+    });
+</script>
