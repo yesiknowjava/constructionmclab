@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 {{ partial "muret_head.html" . }}
+<script src="/js/jquery1.9.min.js"></script>
+{{ partial "sticky_header.html" (dict "context" . "myVar" "n-69365") }}
 <body class="x  x-fonts-league-spartan">
     <div id="layout-916-bd-50-a-cfc-9-4-fbc-909-c-6-c-1-db-1-deac-06"
         class="layout layout-layout layout-layout-layout-13 locale-en-CA lang-en">
@@ -426,18 +428,16 @@
                                                         class="x-el x-el-h4 c1-1 c1-2 c1-1r c1-1f c1-7h c1-19 c1-17 c1-16 c1-9a c1-3u c1-4k c1-97 c1-54 c1-b c1-98 c1-5z c1-45 c1-9c c1-61 c1-63 c1-64 c1-65">
                                                         Muret en bloc de béton préfabriqué</h4>
                                                 </div>
+
+
+                                                
                                                 <div data-ux="ContentCardWrapperImage"
                                                     class="x-el x-el-div c1-1 c1-2 c1-1i c1-29 c1-2a c1-75 c1-4 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
                                                             data-lazyimg="true"
                                                             data-srclazy={{"/images/IMG_1231_1.jpg" | relURL }}
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                                {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                                {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                                {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                                {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
+                                                            src="{{"/images/IMG_1231_1.jpg" | relURL }}"
                                                             sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
                                                             data-srcsetlazy="{{"/images/IMG_1231_1.jpg" | relURL }},
                                                              {{"/images/IMG_1231_2.jpg" | relURL }} 2x,
@@ -479,13 +479,8 @@
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
                                                             data-lazyimg="true"
-                                                            data-srclazy={{"/images/Gabion_1.jpg" | relURL }}
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                            {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                            {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                            {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                            {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
+                                                            src="{{"/images/Gabion_1.jpg" | relURL }}"
+                                                            
                                                             sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
                                                             data-srcsetlazy="{{"/images/Gabion_1.jpg" | relURL }},
                                                              {{"/images/Gabion_2.jpg" | relURL }} 2x, 
@@ -527,13 +522,7 @@
                                                     <span data-ux="Element"
                                                         class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
                                                             data-lazyimg="true"
-                                                            data-srclazy={{"/images/Gabion_1.jpg" | relURL }}
-                                                            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                                            srcSet="{{"/images/transparent_placeholder_1.png" | relURL }} 451w,
-                                                            {{"/images/transparent_placeholder_2.png" | relURL }} 768w, 
-                                                            {{"/images/transparent_placeholder_3.png" | relURL }} 1024w, 
-                                                            {{"/images/transparent_placeholder_4.png" | relURL }} 1280w, 
-                                                            {{"/images/transparent_placeholder_5.png" | relURL }} 1536w"
+                                                            src="{{"/images/Gabion_2.jpg" | relURL }}"
                                                             sizes="(min-width: 451px) and (max-width: 767px) 767px, (min-width: 768px) and (max-width: 1023px) 1023px, (min-width: 1024px) and (max-width: 1279px) 1279px, (min-width: 1280px) and (max-width: 1535px) 1535px, (min-width: 1536px) 1536px"
                                                             data-srcsetlazy="{{"/images/Gabion_1.jpg" | relURL }}, 
                                                             {{"/images/Gabion_2.jpg" | relURL }} 2x,

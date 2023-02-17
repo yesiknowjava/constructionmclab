@@ -2,10 +2,19 @@
 <html lang="en-CA">
 
 {{ partial "home_head.html" . }}
+<script src="/js/jquery1.9.min.js"></script>
+{{ partial "sticky_header.html" (dict "context" . "myVar" "n-122164") }}
+{{ partial "sticky_header.html" (dict "context" . "myVar" "header_stickynav122167") }}
 
 <script>
+
+    $(document).ready(function() {
+        $('.modal-toggle').on('click', function(e) {
+            e.preventDefault();
+            $('.modal').toggleClass('is-visible');
+          });
+    });
     function buttonClicked() {
-        alert("clciked");
         document.getElementById('page-122163').getElementsByClassName("x-el-form")[0].submit()
     }
 
@@ -32,6 +41,104 @@
 </script>
 
 <style>
+
+    /* 1. Ensure this sits above everything when visible */
+.modal {
+    position: absolute;
+    z-index: 10000; /* 1 */
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.modal.is-visible {
+    visibility: visible;
+}
+
+.modal-overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+
+.modal.is-visible .modal-overlay {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.modal-wrapper {
+  position: absolute;
+  z-index: 9999;
+  top: 6em;
+  left: 50%;
+  width: 32em;
+  margin-left: -16em;
+  background-color: #fff;
+  box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+}
+
+.modal-transition {
+  transition: all 0.3s 0.12s;
+  transform: translateY(-10%);
+  opacity: 0;
+}
+
+.modal.is-visible .modal-transition {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-header,
+.modal-content {
+  padding: 1em;
+}
+
+.modal-header {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  color: #aaa;
+  background: none;
+  border: 0;
+}
+
+.modal-close:hover {
+  color: #777;
+}
+
+.modal-heading {
+  font-size: 1.125em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.modal-content > *:first-child {
+  margin-top: 0;
+}
+
+.modal-content > *:last-child {
+  margin-bottom: 0;
+}
+
     .x .c1-o {
         position: relative;
     }
@@ -62,11 +169,8 @@
                                                     data-ux="HeaderMediaImage" data-aid="HEADER_VIDEO_EMBED_FILL_POSTER"
                                                     class="x-el x-el-img c1-1 c1-2 c1-4 c1-y c1-u c1-s c1-r c1-t c1-z c1-10 c1-11 c1-12 c1-13 c1-14 c1-15 c1-16 c1-q c1-17 c1-18 c1-19 c1-p c1-1a c1-1b c1-1c c1-1d c1-1e c1-1f c1-1g c1-1h c1-1i c1-b c1-c c1-1j c1-d c1-e c1-f c1-g" />
                                                 <div data-ux="Block"
-
-                                                
                                                     class="x-el x-el-div c1-1 c1-2 c1-p c1-1k c1-b c1-c c1-1l c1-d c1-e c1-f c1-g">
-                                                    <iframe data-ux="Embed" id="embed-iframe-122166"
-                                                    style="transform: scale(2.696); height: 100%;
+                                                    <iframe data-ux="Embed" id="embed-iframe-122166" style="transform: scale(2.696); height: 100%;
                                                     min-height: 85vh;
                                                     overflow-clip-margin: content-box !important;
                                                     border-width: 2px;
@@ -128,7 +232,7 @@
                                                                                         alt="Excavation et Compagnie"
                                                                                         data-ux="ImageLogo"
                                                                                         data-aid="HEADER_LOGO_IMAGE_RENDERED"
-                                                                                        class="x-el x-el-img c1-1 c1-2 c1-2z c1-y c1-u c1-s c1-r c1-t c1-z c1-36 c1-37 c1-38 c1-21 c1-39 c1-1d c1-1e c1-1f c1-1g c1-1h c1-1i c1-b c1-c c1-3a c1-3b c1-1j c1-3c c1-3d c1-3e c1-3f c1-3g c1-3h c1-3i c1-3j c1-3k c1-3l c1-3m c1-d c1-3n c1-3o c1-3p c1-e c1-f c1-g" />
+                                                                                        id="logo" />
                                                                                 </div>
                                                                             </div>
                                                                         </a></div>
@@ -683,9 +787,9 @@
                                                             <picture
                                                                 class="x-el x-el-picture c1-1 c1-2 c1-4 c1-p c1-6v c1-9m c1-1i c1-b c1-c c1-d c1-e c1-f c1-g">
                                                                 <source media="(max-width: 450px)"
-                                                                srcset="{{"/images/blob-c54e0c2-1.png" | relURL }}, {{"/images/blob-c54e0c2-2.png" | relURL }} 2x, {{"/images/blob-c54e0c2-3.png" | relURL }} 3x"> 
-                                                                <source media="(min-width: 451px)" 
-                                                                srcset="{{"/images/blob-c54e0c2_1.png" | relURL }}, {{"/images/blob-c54e0c2_2.png" | relURL }} 2x, {{"/images/blob-c54e0c2_3.png" | relURL }} 3x">
+                                                                    srcset="{{"/images/blob-c54e0c2-1.png" | relURL }}, {{"/images/blob-c54e0c2-2.png" | relURL }} 2x, {{"/images/blob-c54e0c2-3.png" | relURL }} 3x">
+                                                                <source media="(min-width: 451px)"
+                                                                    srcset="{{"/images/blob-c54e0c2_1.png" | relURL }}, {{"/images/blob-c54e0c2_2.png" | relURL }} 2x, {{"/images/blob-c54e0c2_3.png" | relURL }} 3x">
                                                                 <img data-ux="Image"
                                                                     src={{"/images/blob-c54e0c2_5.png" | relURL }}
                                                                     srcset="" data-aid="ABOUT_IMAGE_RENDERED0"
@@ -763,19 +867,19 @@
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-6v c1-8d c1-28 c1-b c1-c c1-9v c1-9w c1-d c1-3o c1-e c1-f c1-g">
                                                         <span data-ux="Element"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img 
-                                                            src={{"/images/blob-87e6103_1.png" | relURL }} 
-                                                            srcset="{{"/images/blob-87e6103_2.png" | relURL }}, {{"/images/blob-87e6103_3.png" | relURL }} 2x" 
-                                                            data-ux="ImageLogo" data-aid="LOGOS_IMAGE0_RENDERED"
+                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
+                                                                src={{"/images/blob-87e6103_1.png" | relURL }}
+                                                                srcset="{{"/images/blob-87e6103_2.png" | relURL }}, {{"/images/blob-87e6103_3.png" | relURL }} 2x"
+                                                                data-ux="ImageLogo" data-aid="LOGOS_IMAGE0_RENDERED"
                                                                 class="x-el x-el-img c1-1 c1-2 c1-2z c1-y c1-u c1-s c1-r c1-t c1-z c1-9x c1-37 c1-1h c1-b c1-c c1-9y c1-3b c1-1j c1-9z c1-3d c1-3e c1-3f c1-3g c1-3h c1-a0 c1-3j c1-3k c1-3l c1-3m c1-d c1-e c1-f c1-g"></span>
                                                     </div>
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-6v c1-8d c1-27 c1-28 c1-b c1-c c1-9v c1-9w c1-d c1-3o c1-e c1-f c1-g">
                                                         <span data-ux="Element"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img 
-                                                            src={{"/images/Bionest20logo_1.png" | relURL }} 
-                                                            srcset="{{"/images/Bionest20logo_2.png " | relURL }}, {{"/images/Bionest20logo_3.png" | relURL }} 2x" 
-                                                            data-ux="ImageLogo" data-aid="LOGOS_IMAGE1_RENDERED"
+                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
+                                                                src={{"/images/Bionest20logo_1.png" | relURL }}
+                                                                srcset="{{"/images/Bionest20logo_2.png " | relURL }}, {{"/images/Bionest20logo_3.png" | relURL }} 2x"
+                                                                data-ux="ImageLogo" data-aid="LOGOS_IMAGE1_RENDERED"
                                                                 class="x-el x-el-img c1-1 c1-2 c1-2z c1-y c1-u c1-s c1-r c1-t c1-z c1-a1 c1-37 c1-1h c1-b c1-c c1-a2 c1-3b c1-1j c1-9z c1-3d c1-3e c1-3f c1-3g c1-3h c1-a0 c1-3j c1-3k c1-3l c1-3m c1-d c1-e c1-f c1-g"></span>
                                                     </div>
                                                     <div data-ux="Block"
@@ -808,9 +912,8 @@
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-6v c1-8d c1-28 c1-b c1-c c1-9v c1-9w c1-d c1-3o c1-e c1-f c1-g">
                                                         <span data-ux="Element"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img 
-                                                            src={{"/images/blob-0d597d7_1.png" | relURL }} 
-                                                            srcset=" {{"/images/blob-0d597d7_2.png" | relURL }}, {{"/images/blob-0d597d7_3.png" | relURL }}
+                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
+                                                                src={{"/images/blob-0d597d7_1.png" | relURL }} srcset=" {{"/images/blob-0d597d7_2.png" | relURL }}, {{"/images/blob-0d597d7_3.png" | relURL }}
                                                                 2x, {{"/images/blob-0d597d7_4.png" | relURL }} 3x"
                                                                 data-ux="ImageLogo" data-aid="LOGOS_IMAGE4_RENDERED"
                                                                 class="x-el x-el-img c1-1 c1-2 c1-2z c1-y c1-u c1-s c1-r c1-t c1-z c1-a8 c1-37 c1-1h c1-b c1-c c1-a9 c1-3b c1-1j c1-9z c1-3d c1-3e c1-3f c1-3g c1-3h c1-a0 c1-3j c1-3k c1-3l c1-3m c1-d c1-e c1-f c1-g"></span>
@@ -818,18 +921,18 @@
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-6v c1-8d c1-27 c1-28 c1-b c1-c c1-9v c1-9w c1-d c1-3o c1-e c1-f c1-g">
                                                         <span data-ux="Element"
-                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img 
-                                                            src="{{"/images/logo20ccq_1.png" | relURL }}" 
-                                                            srcset="{{"/images/logo20ccq_2.png" | relURL }}, {{"/images/logo20ccq_3.png" | relURL }} 2x, {{"/images/logo20ccq_4.png" | relURL }} 3x" data-ux="ImageLogo"
-                                                                data-aid="LOGOS_IMAGE5_RENDERED"
+                                                            class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g"><img
+                                                                src="{{"/images/logo20ccq_1.png" | relURL }}"
+                                                                srcset="{{"/images/logo20ccq_2.png" | relURL }}, {{"/images/logo20ccq_3.png" | relURL }} 2x, {{"/images/logo20ccq_4.png" | relURL }} 3x"
+                                                                data-ux="ImageLogo" data-aid="LOGOS_IMAGE5_RENDERED"
                                                                 class="x-el x-el-img c1-1 c1-2 c1-2z c1-y c1-u c1-s c1-r c1-t c1-z c1-aa c1-37 c1-1h c1-b c1-c c1-ab c1-3b c1-1j c1-9z c1-3d c1-3e c1-3f c1-3g c1-3h c1-a0 c1-3j c1-3k c1-3l c1-3m c1-d c1-e c1-f c1-g"></span>
                                                     </div>
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-6v c1-8d c1-27 c1-b c1-c c1-9v c1-9w c1-d c1-3o c1-e c1-f c1-g">
                                                         <span data-ux="Element"
                                                             class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                            <img src={{"/images/AESQ_1.png" | relURL }} 
-                                                            srcset="{{"/images/AESQ_2.png" | relURL }}, {{"/images/AESQ_3.png" | relURL }} 2x"
+                                                            <img src={{"/images/AESQ_1.png" | relURL }}
+                                                                srcset="{{"/images/AESQ_2.png" | relURL }}, {{"/images/AESQ_3.png" | relURL }} 2x"
                                                                 data-ux="ImageLogo" data-aid="LOGOS_IMAGE6_RENDERED"
                                                                 class="x-el x-el-img c1-1 c1-2 c1-2z c1-y c1-u c1-s c1-r c1-t c1-z c1-ac c1-37 c1-1h c1-b c1-c c1-ad c1-3b c1-1j c1-9z c1-3d c1-3e c1-3f c1-3g c1-3h c1-a0 c1-3j c1-3k c1-3l c1-3m c1-d c1-e c1-f c1-g"></span>
                                                     </div>
@@ -914,7 +1017,8 @@
                         <div>
                             <section data-ux="SectionBanner"
                                 class="x-el x-el-section c1-1 c1-2 c1-21 c1-i c1-j c1-o c1-b c1-c c1-b1 c1-b2 c1-b3 c1-d c1-b4 c1-b5 c1-e c1-f c1-g">
-                                <div role="img" data-aid="BG_IMAGE_RENDERED" data-ux="Background" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.24) 100%), url(//img1.wsimg.com/isteam/ip/916bd50a-cfc9-4fbc-909c-6c1db1deac06/324224888_518797606731690_4673978283186389626_.jpg); background-position: 50.869561842574285% 46.52173913043478%;"
+                                <div role="img" data-aid="BG_IMAGE_RENDERED" data-ux="Background"
+                                    style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.24) 100%), url(/images/324224888_518797606731690_4673978283186389626_.jpg); background-position: 50.869561842574285% 46.52173913043478%;"
                                     class="x-el x-el-div c1-1 c1-2 c1-b6 c1-w c1-1m c1-x c1-1s c1-q c1-b7 c1-b c1-c c1-b8 c1-b9 c1-3f c1-d c1-e c1-f c1-g">
                                     <div data-ux="Block" data-lazybg="true"
                                         class="x-el x-el-div d-none c1-1 c1-2 c1-ba c1-bb c1-bc c1-bd c1-be c1-b c1-c c1-bf c1-bg c1-bh c1-bi c1-bj c1-bk c1-bl c1-bm c1-bn c1-bo c1-bp c1-bq c1-br c1-bs c1-bt c1-bu c1-bv c1-bw c1-bx c1-by c1-bz c1-d c1-e c1-f c1-g">
@@ -940,7 +1044,8 @@
                                             Pour une soumission ou nous rejoindre</h2>
                                     </div>
                                 </div>
-                                <div data-ux="Container"
+
+                                <div data-ux="Container" id="home_base"
                                     class="x-el x-el-div c1-1 c1-2 c1-u c1-s c1-27 c1-28 c1-y c1-o c1-9o c1-6v c1-b c1-c c1-c5 c1-69 c1-d c1-6a c1-e c1-6b c1-f c1-6c c1-g">
                                     <div data-ux="Content"
                                         class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
@@ -952,16 +1057,147 @@
                                                     class="x-el x-el-div c1-1 c1-2 c1-7g c1-7q c1-7r c1-c1 c1-y c1-1d c1-7t c1-1f c1-7v c1-3 c1-c6 c1-b c1-c c1-c7 c1-m c1-n c1-c8 c1-c9 c1-ca c1-cb c1-7z c1-cc c1-81 c1-cd c1-ce c1-cf c1-cg c1-d c1-ch c1-ci c1-cj c1-e c1-f c1-g">
                                                     <div data-ux="Block"
                                                         class="x-el x-el-div c1-1 c1-2 c1-6u c1-b c1-c c1-d c1-e c1-f c1-g">
-
-
-
-                                                        {{ partial "form_contact.html" . }}
+                                                        <div data-ux="GridCell"
+                                                            class="x-el x-el-div c2-1 c2-2 c2-21 c2-2b c2-2c c2-2d c2-a c2-v c2-2e c2-x c2-2f c2-2g c2-2h c2-3 c2-4 c2-2i c2-2j c2-2k c2-2l c2-2m c2-2n c2-2o c2-2p c2-2q c2-2r c2-2s c2-2t c2-2u c2-2v c2-5 c2-2w c2-2x c2-2y c2-6 c2-7 c2-8">
+                                                            <div data-ux="Block"
+                                                                class="x-el x-el-div c2-1 c2-2 c2-2z c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                                                <h4 role="heading" aria-level="4"
+                                                                    data-ux="ContentHeading"
+                                                                    data-aid="CONTACT_INTRO_HEADING_REND"
+                                                                    data-typography="HeadingDelta"
+                                                                    class="x-el x-el-h4 c2-1 c2-2 c2-1f c2-1g c2-30 c2-31 c2-32 c2-d c2-33 c2-3 c2-34 c2-35 c2-1m c2-36 c2-37 c2-38 c2-39">
+                                                                    Nos secteurs desservis</h4>
+                                                                <div data-ux="ContentText"
+                                                                    data-aid="CONTACT_INTRO_DESC_REND"
+                                                                    data-typography="BodyAlpha"
+                                                                    class="x-el c2-1 c2-2 c2-1f c2-1g c2-3a c2-d c2-33 c2-3b c2-3c c2-3d c2-3e c2-3f c2-3g c2-3h c2-3i c2-3j c2-3k c2-3l c2-3m c2-3n c2-3o c2-3p c2-3q c2-3r c2-3s c2-3t c2-3u c2-3v c2-3w c2-3x c2-3y c2-3z c2-40 c2-41 c2-42 c2-3 c2-43 c2-4 c2-1m c2-5 c2-6 c2-7 c2-8 x-rt">
+                                                                    <p style="margin: 0px;"><span>Nous desservons la
+                                                                            rive-nord, les laurentides, lanaudière,
+                                                                            laval ainsi que montréal</span></p>
+                                                                </div>
+                                                            </div>
+                                                            <div data-ux="Block"
+                                                                class="x-el x-el-div c2-1 c2-2 c2-2z c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                                                <h4 role="heading" aria-level="4"
+                                                                    data-ux="ContentHeading"
+                                                                    data-aid="CONTACT_INFO_BIZ_NAME_REND"
+                                                                    data-typography="HeadingDelta"
+                                                                    class="x-el x-el-h4 c2-1 c2-2 c2-1f c2-1g c2-30 c2-31 c2-32 c2-d c2-33 c2-3 c2-34 c2-35 c2-1m c2-36 c2-37 c2-38 c2-39">
+                                                                    Construction McLab</h4>
+                                                                <p data-ux="ContentText" data-typography="BodyAlpha"
+                                                                    class="x-el x-el-p c2-1 c2-2 c2-1f c2-1g c2-3a c2-d c2-33 c2-3 c2-43 c2-4 c2-1m c2-5 c2-6 c2-7 c2-8">
+                                                                    <a rel="" role="link" aria-haspopup="false"
+                                                                        data-ux="Link"
+                                                                        data-aid="CONTACT_INFO_PHONE_REND"
+                                                                        href="tel:4503676090"
+                                                                        data-typography="LinkAlpha"
+                                                                        class="x-el x-el-a c2-44 c2-45 c2-1e c2-1f c2-1g c2-46 c2-1i c2-3 c2-47 c2-4 c2-48 c2-49 c2-4a c2-5 c2-6 c2-7 c2-8">450-367-6090</a>
+                                                                </p>
+                                                            </div>
+                                                            <div data-ux="Block"
+                                                                class="x-el x-el-div c2-1 c2-2 c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                                                <div data-ux="Block"
+                                                                    class="x-el x-el-div c2-1 c2-2 c2-4b c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                                                    <h4 role="heading" aria-level="4"
+                                                                        data-ux="ContentHeading"
+                                                                        data-aid="CONTACT_HOURS_TITLE_REND"
+                                                                        data-typography="HeadingDelta"
+                                                                        class="x-el x-el-h4 c2-1 c2-2 c2-1f c2-1g c2-30 c2-31 c2-32 c2-d c2-33 c2-3 c2-34 c2-35 c2-1m c2-36 c2-37 c2-38 c2-39">
+                                                                        Horaires</h4>
+                                                                    <div data-ux="Block" data-aid="CONTACT_HOURS_REND"
+                                                                        class="x-el x-el-div c2-1 c2-2 c2-33 c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                                                        <table
+                                                                            style="border-spacing: 0px; text-align: left; display: inline-table;">
+                                                                            <tr data-aid="CONTACT_HOURS_COLLAPSED_REND"
+                                                                                style="cursor: pointer;">
+                                                                                <td>
+                                                                                    <p data-ux="ContentText"
+                                                                                        data-aid="CONTACT_HOURS_COLLAPSED_LABEL"
+                                                                                        data-typography="BodyAlpha"
+                                                                                        class="x-el x-el-p c2-1 c2-2 c2-1f c2-1g c2-3a c2-d c2-e c2-3 c2-43 c2-4 c2-1m c2-5 c2-6 c2-7 c2-8">
+                                                                                        Open today</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <p data-ux="ContentText"
+                                                                                        data-typography="BodyAlpha"
+                                                                                        class="x-el x-el-p c2-1 c2-2 c2-1f c2-1g c2-3a c2-d c2-e c2-4c c2-4d c2-3 c2-43 c2-4 c2-1m c2-5 c2-6 c2-7 c2-8">
+                                                                                        <span rel="" role="button"
+                                                                                            aria-haspopup="menu"
+                                                                                            data-ux="Link"
+                                                                                            data-aid="CONTACT_HOURS_COLLAPSED_HR_LABEL"
+                                                                                            data-typography="LinkAlpha"
+                                                                                            class="x-el x-el-span c2-44 c2-45 c2-1e c2-1f c2-1g c2-46 c2-1i c2-3 c2-47 c2-4 c2-48 c2-49 c2-4a c2-5 c2-6 c2-7 c2-8">09:00
+                                                                                            am – 05:00 pm</span></p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <p data-ux="ContentText"
+                                                                                        data-aid="CONTACT_HOURS_COLLAPSED_ARROW"
+                                                                                        data-typography="BodyAlpha"
+                                                                                        class="x-el x-el-p c2-1 c2-2 c2-1f c2-1g c2-3a c2-d c2-e c2-3 c2-43 c2-4 c2-1m c2-5 c2-6 c2-7 c2-8">
+                                                                                        <span rel="" role="button"
+                                                                                            aria-haspopup="menu"
+                                                                                            data-ux="Link"
+                                                                                            data-typography="LinkAlpha"
+                                                                                            class="x-el x-el-span c2-44 c2-45 c2-1e c2-1f c2-1g c2-1h c2-1i c2-4e c2-3 c2-47 c2-4 c2-48 c2-49 c2-4a c2-5 c2-6 c2-7 c2-8"><svg
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill="currentColor"
+                                                                                                width="16" height="16"
+                                                                                                data-ux="Icon"
+                                                                                                class="x-el x-el-svg c2-1 c2-2 c2-1t c2-1u c2-1v c2-1w c2-f c2-1x c2-4f c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                                                                                <path
+                                                                                                    fill-rule="evenodd"
+                                                                                                    d="M19.774 7.86c.294-.335.04-.839-.423-.84L4.538 7c-.447-.001-.698.48-.425.81l7.204 8.693a.56.56 0 0 0 .836.011l7.621-8.654z">
+                                                                                                </path>
+                                                                                            </svg></span></p>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div data-ux="ContentText"
+                                                                        data-aid="CONTACT_HOURS_CUST_MSG_REND"
+                                                                        data-typography="BodyAlpha"
+                                                                        class="x-el c2-1 c2-2 c2-1f c2-1g c2-3a c2-d c2-e c2-3b c2-3c c2-3d c2-3e c2-3f c2-3g c2-3h c2-3i c2-3j c2-3k c2-3l c2-3m c2-3n c2-3o c2-3p c2-3q c2-3r c2-3s c2-3t c2-3u c2-3v c2-3w c2-3x c2-3y c2-3z c2-40 c2-41 c2-42 c2-3 c2-43 c2-4 c2-1m c2-5 c2-6 c2-7 c2-8 x-rt">
+                                                                    </div>
+                                                                </div>
+                                                            </div><button data-ux-btn="primary" data-ux="ButtonPrimary"
+                                                                color="PRIMARY" fill="SOLID" shape="PILL"
+                                                                decoration="NONE" shadow="NONE"
+                                                                data-aid="CONTACT_FORM_REVEAL_BUTTON_REND"
+                                                                data-typography="ButtonAlpha"
+                                                                class="modal-toggle x-el x-el-button c2-1c c2-1d c2-4g c2-1i c2-4h c2-4i c2-1j c2-4j c2-26 c2-1e c2-1g c2-1f c2-1x c2-a c2-9 c2-4k c2-4l c2-4m c2-4n c2-4o c2-4p c2-4q c2-4r c2-3 c2-4s c2-4t c2-1l c2-4u c2-4v c2-1p c2-1q c2-1r c2-1s">Demande
+                                                                de soumission</button>
+                                                        </div>
                                                     </div>
-
                                                 </div>
 
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div data-ux="Container" id="home_popup"
+                                    class="modal">
+                                    <div class="modal-overlay modal-toggle"></div>
+                                    <div class="modal-wrapper modal-transition">
+                                        <div class="modal-body">
+                                            <div class="modal-content">
+                                              
+                                                <div data-ux="Content"
+                                                    class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
+                                                    <div data-ux="Element"
+                                                        class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
+                                                        
+
+
+                                                                    {{ partial "form_contact.html" . }}
+                                                                
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                    
                                     </div>
                                 </div>
                             </section>
